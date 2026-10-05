@@ -8,6 +8,14 @@ def perfil_usuario(usuario):
     print("perfil de "+usuario["nombre"])
     print("genero favorito "+usuario["genero_fav"])
     print("peliculas sugeridas ",usuario["vistas"])
+    with open("info_usuario.txt","w",encoding="utf-8") as archivo:
+        archivo.write(usuario["nombre"]+ "\n")
+        archivo.write(usuario["genero_fav"])
+        archivo.write("\n")
+        archivo.write("Listados de Peliculas sugeridas")
+        archivo.write("\n")
+        for pelicula in usuario["vistas"]:
+            archivo.write(pelicula+"\t")
 #Mostrar Generos De Peliculas.
 def mostrar_generos():
    generos=["Accion","Comedia","Terror","Animacion"]
